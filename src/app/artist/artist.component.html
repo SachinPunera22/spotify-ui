@@ -1,0 +1,35 @@
+<div class="row m-5 px-3" style="width: 90%">
+  <div class="col-10" style="margin-left: 6%">
+    <h2 class="col-sm-3">Add Artist</h2>
+  </div>
+  <div class="col-1">
+    <button type="button" class="btn-close col-1" aria-label="Close"></button>
+  </div>
+  <div class="row m-4">
+    <form>
+      <div class="col-12 m-5">
+        <label for="Artist">Artist:- </label>
+        <input type="text" id="Name" class="ms-5" style="margin-left: 10px" />
+      </div>
+      <div class="col-12 m-4">
+        <label for="date"> Date of Birth:-</label>
+        <input type="date" class="ms-3" ngModel name="date" />
+      </div>
+      <div class="col-12 m-5">
+        <div class="row">
+          <div class="col-1">
+            <label for="Bio" style="position: relative; top: 0px">Bio:- </label>
+          </div>
+          <div class="col-11">
+            <input style="min-height: 200px; min-width: 200px" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="bg-light" style="margin-left: 600px">
+    <button type="button" class="btn btn-danger m-1">Cancel</button>
+
+    <button type="button" class="btn btn-primary m-1">Save</button>
+  </div>
+</div>

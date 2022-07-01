@@ -1,0 +1,62 @@
+<div class="justify content center">
+  <div class="container mt-3">
+    <h2>Top 10 Songs</h2>
+    <table class="table table-border-dark table-hover">
+      <thead class="thead-dark">
+        <tr style="background-color: rgb(79, 76, 76)">
+          <th>ArtWork</th>
+          <th>Song</th>
+          <th>Date of release</th>
+          <th>Artist</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let song of songs; let i = index">
+          <td class="p-2">
+            <img [src]="song?.coverImage" class="song-img" alt="Sheep" />
+          </td>
+          <td>{{ song?.songName }}</td>
+          <td>{{ song?.date }}</td>
+          <td>
+            <span
+              *ngFor="
+                let artist of song.artist;
+                let i = index;
+                let count = count
+              "
+            >
+              {{ artist }}
+              <span *ngIf="i <= count - 2">,</span>
+            </span>
+          </td>
+          
+            <td>
+            
+
+            </td>
+         
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container mt-5">
+    <h2>Top 10 Artist</h2>
+    <table class="table table-border-dark table-hover table-image">
+      <thead class="thead-dark">
+        <tr style="background-color: rgb(102, 96, 96)">
+          <th>Artist</th>
+          <th>Date of Birth</th>
+          <th>Songs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Arijit Singh</td>
+          <td>12 may</td>
+          <td>Suno na sange mar mar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
