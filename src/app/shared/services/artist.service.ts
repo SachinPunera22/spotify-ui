@@ -2,21 +2,27 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { artist } from '../models/artist.model';
+import { Artist } from '../models/artist.model';
 @Injectable({
   providedIn: 'root',
 })
-export class artistService {
-  AddArtistUrl = 'http://localhost:3000/package';
-  NewArtistDetails = 'http://localhost:3000/package/packageDetail';
+export class ArtistService {
+  addArtistUrl = 'http://localhost:3000/artist';
+  artistListUrl = 'http://localhost:3000/artist';
+topArtistListUrl = 'http://localhost:3000/artist';
+
 
   constructor(private http: HttpClient) {}
 
-  all(): Observable<artist[]> {
-    return this.http.get<artist[]>(this.AddArtistUrl);
+  artistList(): Observable<Artist[]> {
+    return this.http.get<Artist[]>(this.artistListUrl);
   }
 
-  getartist(id: any): Observable<artist> {
-    return this.http.get<artist>(this.NewArtistDetails + '/' + id);
+  topArtistList(): Observable<Artist[]> {
+    return this.http.get<Artist[]>(this.topArtistListUrl);
+  }
+
+  addArtist(data: any): Observable<Artist> {
+    return this.http.post<Artist>(this.addArtistUrl , data);
   }
 }

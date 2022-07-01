@@ -1,15 +1,20 @@
 <div class="justify-content-center m-5">
   <div class="container px-5 m-5">
-    <h2>Adding new Songs</h2>
-    <form class="form-horizontal">
+    <h2 class="ps-5">Adding new Songs</h2>
+    <form
+      class="form-horizontal"
+      #newSong="ngForm"
+      (ngSubmit)="onSubmit(newSong)"
+    >
       <div class="form-group px-5 m-4">
         <label class="control-label col-sm-2 m-2" for="email">Song Name:</label>
         <div class="col-sm-10">
           <input
             type="email"
             class="form-control"
-            id="email"
             placeholder="Enter email"
+            ngmodel
+            required
             name="email"
           />
         </div>
@@ -20,40 +25,38 @@
         >
         <div class="col-sm-10">
           <input
-            type="password"
+            type="date"
             class="form-control"
-            id="pwd"
             placeholder="Enter password"
+            ngmodel
+            required
             name="pwd"
           />
         </div>
       </div>
-      <div class="row px-5 m-4">
-        <div class="form-group col-sm-4 m-2">
-          <label class="form-label" for="customFile">ArtWork</label>
-          <input type="file" class="form-control" id="customFile" />
+        <div class="form-group px-5 m-4">
+          <label class="control-label col-sm-2 m-2"  for="customFile">ArtWork</label>
+          <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            name="coverImage"
+            placeholder="Enter Your Song's Cover Image URL"
+            ngmodel
+            required
+          />
         </div>
-      </div>
-      <div class="container px-5 m-4">
-        <h5>Artist:-</h5>
-        <div class="dropdown">
-          <button
-            type="button"
-            class="btn btn-light dropdown-toggle m-2"
-            data-bs-toggle="dropdown"
-          >
-            Select:-
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Link 1</a></li>
-            <li><a class="dropdown-item" href="#">Link 2</a></li>
-            <li><a class="dropdown-item" href="#">Link 3</a></li>
-          </ul>
         </div>
-      </div>
+        <div class="form-group px-5 m-4">
+          <label class="control-label " style="margin-right: 50px;" >Artists</label>
+          <div class="col-sm-10">
+          
+          
+        </div>
+        </div>
       <div class="row m-4 px-5">
         <div class="form-group col-sm-2">
-          <button type="submit" class="btn-block btn-light">cancle</button>
+          <button type="submit" class="btn-block btn-light">Cancel</button>
         </div>
         <div class="form-group col-sm-3">
           <button type="submit" class="btn-block btn-light">Submit</button>
