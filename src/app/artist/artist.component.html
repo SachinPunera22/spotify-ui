@@ -1,35 +1,57 @@
-<div class="row m-5 px-3" style="width: 90%">
-  <div class="col-10" style="margin-left: 6%">
-    <h2 class="col-sm-3">Add Artist</h2>
-  </div>
-  <div class="col-1">
-    <button type="button" class="btn-close col-1" aria-label="Close"></button>
-  </div>
-  <div class="row m-4">
-    <form>
-      <div class="col-12 m-5">
-        <label for="Artist">Artist:- </label>
-        <input type="text" id="Name" class="ms-5" style="margin-left: 10px" />
+<div class="justify-content-center m-5">
+  <div class="container px-5 m-5">
+    <h2 class="ps-5">Adding new Artist</h2>
+    <form
+      class="form-horizontal"
+      #newArtist="ngForm"
+      (ngSubmit)="onSubmit(newArtist)"
+    >
+      <div class="form-group px-5 m-4">
+        <label class="control-label col-sm-2 m-2">Artist Name:</label>
+        <div class="col-sm-10">
+          <input
+            class="form-control"
+            placeholder="Enter song name"
+            ngModel
+            required
+            name="artistName"
+          />
+        </div>
       </div>
-      <div class="col-12 m-4">
-        <label for="date"> Date of Birth:-</label>
-        <input type="date" class="ms-3" ngModel name="date" />
+      <div class="form-group px-5 m-4">
+        <label class="control-label col-sm-2 m-2"
+          >Date of Birth</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="date"
+            class="form-control"
+            placeholder="Enter password"
+            ngModel
+            required
+            name="DOB"
+          />
+        </div>
       </div>
-      <div class="col-12 m-5">
-        <div class="row">
-          <div class="col-1">
-            <label for="Bio" style="position: relative; top: 0px">Bio:- </label>
-          </div>
-          <div class="col-11">
-            <input style="min-height: 200px; min-width: 200px" />
-          </div>
+        <div class="form-group px-5 m-4">
+          <label class="control-label col-sm-2 m-2">Bio</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ngModel name="bio"></textarea>
+        </div>
+        </div>
+      
+      <div class="row m-4 px-5">
+        <div class="form-group col-sm-2">
+          <button type="submit" class="btn btn-primary">Submit </button>
+        </div>
+        <div class="form-group col-sm-3">
+          <button type="button" class="btn btn-danger" routerLink="Newsong">Cancel </button>
         </div>
       </div>
     </form>
   </div>
-  <div class="bg-light" style="margin-left: 600px">
-    <button type="button" class="btn btn-danger m-1">Cancel</button>
-
-    <button type="button" class="btn btn-primary m-1">Save</button>
-  </div>
 </div>
+
+ 
+   
+ 

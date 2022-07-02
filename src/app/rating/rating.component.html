@@ -9,13 +9,13 @@
       </div>
     </div>
 
-   <form action="">
-    <label class="form-label"for="username">Enter your name</label>
-    <input class="form-control" type="text">
-    <label class="form-label" for="username">Enter your Email</label>
-    <input class="form-control" type="text">
-    <label class="form-label" for="rating">Rate</label>
-    <ngb-rating class="pt-2" [max]="5" (rate)= this.Rating  [readonly]="false"></ngb-rating>
+   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <label class="form-label" >Enter your name</label>
+    <input class="form-control" ngModel name="username" type="text">
+    <label class="form-label" >Enter your Email</label>
+    <input class="form-control" ngModel name="email" type="email">
+    <label class="form-label" >Rate</label>
+    <ngb-rating class="pt-2" [max]="5" (rate)= rating  [readonly]="false"></ngb-rating>
 
     <button type="submit" class="ms-5 btn btn-primary">Submit</button>
    </form>

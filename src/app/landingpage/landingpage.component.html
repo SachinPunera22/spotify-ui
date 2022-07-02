@@ -1,6 +1,12 @@
 <div class="justify content center">
   <div class="container mt-3">
-    <h2>Top 10 Songs</h2>
+    <div class="row pb-3">
+      <div class="col-10">
+        <h2>Top 10 Songs</h2> 
+      </div>
+      <div class="col-2 d-flex justify-content-end "><button class="btn-outline-dark btn-sm " routerLink="Newsong">Add song</button></div>
+    </div>
+   
     <table class="table table-border-dark table-hover">
       <thead class="thead-dark">
         <tr style="background-color: rgb(79, 76, 76)">
@@ -26,13 +32,13 @@
                 let count = count
               "
             >
-              {{ artist }}
+              {{ artist.artistName }}
               <span *ngIf="i <= count - 2">,</span>
             </span>
           </td>
           
             <td>
-            
+            <button class="btn btn-primary" [routerLink]=" 'Rating/'+ song._id">Rate Now</button>
 
             </td>
          
@@ -47,14 +53,23 @@
         <tr style="background-color: rgb(102, 96, 96)">
           <th>Artist</th>
           <th>Date of Birth</th>
-          <th>Songs</th>
+          <th>Bio</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Arijit Singh</td>
-          <td>12 may</td>
-          <td>Suno na sange mar mar</td>
+        <tr *ngFor="let artist of topArtists; let i = index">
+          <td>{{artist?.artistName}}</td>
+          <td>{{artist?.DOB}}</td>
+          <td> <span
+            *ngFor="
+              let song of artist.songs;
+              let i = index;
+              let count = count
+            "
+          >
+            {{ song.songName }}
+            <span *ngIf="i <= count - 2">,</span>
+          </span></td>
         </tr>
       </tbody>
     </table>

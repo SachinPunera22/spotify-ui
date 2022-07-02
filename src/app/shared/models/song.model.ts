@@ -1,9 +1,9 @@
-import { DecimalPipe } from "@angular/common";
-
+import { Artist } from './artist.model';
 export interface Song {
-  songName: String;
+  _id:string;
+  songName: string;
   coverImage: String;
-  artist: String[];
+  artist:  Artist[]
   date: String;
   songRating: Number;
   avgRating: Number;

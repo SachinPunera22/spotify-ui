@@ -109,5 +109,7 @@
       }
     }
   },
-  "defaultProject": "spotifyUI"
+  "cli": {
+    "analytics": false
+  }
 }

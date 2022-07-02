@@ -9,7 +9,7 @@ import { Artist } from '../models/artist.model';
 export class ArtistService {
   addArtistUrl = 'http://localhost:3000/artist';
   artistListUrl = 'http://localhost:3000/artist';
-topArtistListUrl = 'http://localhost:3000/artist';
+topArtistListUrl = 'http://localhost:3000/artist/topArtists';
 
 
   constructor(private http: HttpClient) {}

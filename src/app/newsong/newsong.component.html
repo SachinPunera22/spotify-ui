@@ -7,15 +7,14 @@
       (ngSubmit)="onSubmit(newSong)"
     >
       <div class="form-group px-5 m-4">
-        <label class="control-label col-sm-2 m-2" for="email">Song Name:</label>
+        <label class="control-label col-sm-2 m-2">Song Name:</label>
         <div class="col-sm-10">
           <input
-            type="email"
             class="form-control"
-            placeholder="Enter email"
-            ngmodel
+            placeholder="Enter song name"
+            ngModel
             required
-            name="email"
+            name="songName"
           />
         </div>
       </div>
@@ -28,9 +27,9 @@
             type="date"
             class="form-control"
             placeholder="Enter password"
-            ngmodel
+            ngModel
             required
-            name="pwd"
+            name="date"
           />
         </div>
       </div>
@@ -42,21 +41,27 @@
             class="form-control"
             name="coverImage"
             placeholder="Enter Your Song's Cover Image URL"
-            ngmodel
+            ngModel
             required
           />
         </div>
         </div>
         <div class="form-group px-5 m-4">
           <label class="control-label " style="margin-right: 50px;" >Artists</label>
-          <div class="col-sm-10">
-          
-          
-        </div>
+          <div class="row">
+            <div class="col-sm-6">
+
+              <ng-select ngModel [multiple]="true" name="artist">
+                <ng-option *ngFor="let artist of Artists" [value]="artist._id">{{artist.artistName}}</ng-option>
+             </ng-select>
+             
+          </div>
+          <div  class="col-2"><button class="btn btn-primary" routerLink="/Artist">Add New Artist</button></div>
+          </div>
         </div>
       <div class="row m-4 px-5">
         <div class="form-group col-sm-2">
-          <button type="submit" class="btn-block btn-light">Cancel</button>
+          <button type="submit" class="btn-block btn-light" routerLink="">Cancel</button>
         </div>
         <div class="form-group col-sm-3">
           <button type="submit" class="btn-block btn-light">Submit</button>
