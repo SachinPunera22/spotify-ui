@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgSelectModule } from "@ng-select/ng-select";
+import { NgSelectModule } from '@ng-select/ng-select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +37,9 @@ const appRoutes: Routes = [];
     RouterModule.forRoot(appRoutes),
     FormsModule,
     NgbModule,
-    NgSelectModule
+    NgSelectModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

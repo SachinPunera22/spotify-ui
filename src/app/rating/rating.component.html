@@ -1,22 +1,63 @@
 <div class="container-fluid">
-   <div class="row">
-
-    <div class="col-11" >
-        <h2 class="col-sm-3">Rating</h2>
-      </div>
-      <div class="col-1">
-        <button type="button" class="btn-close col-1" aria-label="Close"></button>
-      </div>
+  <div class="row">
+    <div class="col-11">
+      <h2 class="col-sm-3">Rating</h2>
     </div>
+    <div class="col-1">
+      <button type="button" class="btn-close col-1" mat-dialog-close aria-label="Close"></button>
+    </div>
+  </div>
 
-   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-    <label class="form-label" >Enter your name</label>
-    <input class="form-control" ngModel name="username" type="text">
-    <label class="form-label" >Enter your Email</label>
-    <input class="form-control" ngModel name="email" type="email">
-    <label class="form-label" >Rate</label>
-    <ngb-rating class="pt-2" [max]="5" (rate)= rating  [readonly]="false"></ngb-rating>
+ <div *ngIf="!loggedIn;else logged">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <label class="form-label">Enter your name</label>
+    <input class="form-control" ngModel name="username" type="text" />
+    <label class="form-label">Enter your Email</label>
+    <input class="form-control" ngModel name="email" type="email" />
+    <div class="row">
+    
+      <div class="col-12">
+       <label class="form-label">Rate</label>
+      </div>
+      <div class="col-12">
+       <ngb-rating
+       class="pt-2 "
+       [max]="5"
+       (rate)="(rating)"
+       [readonly]="false"
+       ngModel
+    name="rating"
+     ></ngb-rating>
+      </div>
+      <div class="col-12">
+       <button type="submit" class=" btn btn-primary">Submit</button>
+      </div>
+      </div>
+  </form>
+ </div>
+ <ng-template #logged>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+   <div class="row">
+    
+   <div class="col-12">
+    <label class="form-label">Rate</label>
+   </div>
+   <div class="col-12">
+    <ngb-rating
+    class="pt-2 "
+    [max]="5"
+    (rate)="(rating)"
+    [readonly]="false"
+    ngModel
+    name="rating"
+  ></ngb-rating>
+   </div>
+   <div class="col-12">
+    <button type="submit" class=" btn btn-primary">Submit</button>
+   </div>
+   </div>
+  </form>
+ </ng-template>
 
-    <button type="submit" class="ms-5 btn btn-primary">Submit</button>
-   </form>
+   
 </div>

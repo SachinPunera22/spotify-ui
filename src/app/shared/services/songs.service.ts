@@ -8,7 +8,7 @@ import { Song } from '../models/song.model';
 export class SongService {
   songListUrl = 'http://localhost:3000/song';
   addSongUrl = 'http://localhost:3000/song';
-  updateReviewUrl ='http://localhost:3000/song/updateReview'
+  updateReviewUrl ='http://localhost:3000/song/updateRating'
   constructor(private http: HttpClient) {}
 
   getSongList(): Observable<Song[]> {

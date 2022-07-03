@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import{ ArtistService} from '../shared/services/artist.service'
-
 import { Artist } from '../shared/models/artist.model';
+
+import{MatDialogRef}from '@angular/material/dialog';
 
 @Component({
   selector: 'app-artist',
@@ -13,8 +14,8 @@ import { Artist } from '../shared/models/artist.model';
 })
 export class ArtistComponent implements OnInit {
   public Artists: Artist[] = [];
-
-  constructor(public ArtistService:ArtistService,private router: Router) { }
+  public formSubmitted:boolean=false
+  constructor(public ArtistService:ArtistService,private router: Router,private dialogRef: MatDialogRef<ArtistComponent>) { }
 
   ngOnInit(): void {
     this.ArtistService.artistList().subscribe((artists) => {
@@ -35,8 +36,8 @@ export class ArtistComponent implements OnInit {
      this.ArtistService.addArtist(data).subscribe((artist)=>{
       if(artist){
         console.log('Song is added successfully');
-        // this.router.navigate(['']);
-      }
+        this.dialogRef.close();
+         }
       else{
         console.log('Error in adding new song');
       }
